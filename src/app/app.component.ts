@@ -17,7 +17,7 @@ export class AppComponent {
     jobTitle : '',
     image : ''
     };
-    color = 'black';
+    color = false;
   changeName(newName) {
     console.log(newName);
     this.userSaisi.name = newName.target.value;

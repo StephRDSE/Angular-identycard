@@ -5,8 +5,10 @@
   </h1>
   <img width="100" alt="Logo Mairie" src="http://www.montreuil.eco-mairie.fr/assets/img/7_logo.png">
 <h2>Service des cartes d'identité</h2>
+<h1 >connexion</h1>
+<input  type="checkbox" [(ngModel)] = "connected"/>
 </div>
-<div class="bloc gauche">
+<div *ngIf= "connected == true" class="bloc gauche">
   <h5>Saisissez ici vos informations</h5>
 <!-- pour afficher dynamiquement  -->
 <!-- input type="text" value="{{user.name}}" (input)="user.name = inputName.value" #inputName />  -->
@@ -25,11 +27,12 @@
     <button (click)="saveValues($event)">Save</button>
   
 </div>
-<div  class="bloc droite">
-<h2 [style.color] = "color ? 'red' : 'black'" >Nom : {{user.name}}</h2>
+<div *ngIf= "connected == true" class="bloc droite">
+<h1 *ngIf="color">Fiche a vérifier</h1>  
+<h2>Nom : <a [style.color] = "color ? 'red' : 'black'" >{{user.name}}</a></h2>
 <h4>Poste : {{user.jobTitle}}</h4>
 <img width="200" src="{{user.image}}" alt="image" title="votre photo">
-<input defaultValue=false type="checkbox" [(ngModel)] = color/>
+<input  type="checkbox" [(ngModel)] = "color"/>
 </div>
 
 
